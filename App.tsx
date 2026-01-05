@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Auth from './components/Auth';
 import Navigation from './components/Navigation';
@@ -98,7 +97,7 @@ const App: React.FC = () => {
                     <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl border-2 border-white/10 shadow-2xl overflow-hidden shrink-0 bg-white/10 flex items-center justify-center p-0.5">
                        {!logoError ? (
                          <img 
-                            src="./logo.jpg" 
+                            src="logo.jpg" 
                             alt="Logo" 
                             className="w-full h-full object-cover rounded-[1.2rem]" 
                             onError={() => setLogoError(true)}
