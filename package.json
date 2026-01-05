@@ -1,18 +1,12 @@
 {
-  "name": "aqua-code",
+  "name": "aqua-code-pro",
   "private": true,
-  "version": "2.4.2",
+  "version": "8.5.0",
   "type": "module",
-  "homepage": "https://aquacodemk.github.io/AquaCode",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aquacodemk/AquaCode.git"
-  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "fix-github": "git remote set-url origin https://github.com/aquacodemk/AquaCode.git"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",

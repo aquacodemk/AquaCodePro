@@ -1,3 +1,4 @@
+
 name: Deploy to GitHub Pages
 
 on:
@@ -26,7 +27,9 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build
+        run: npx vite build
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
