@@ -11,7 +11,7 @@ import Calendar from './components/Calendar';
 import Contact from './components/Contact';
 import { TabType, Exercise, RoutineItem, DailyStats, GalleryImage, ScheduledWorkout, SavedRoutine, TacticObject, DrawingPath, MovePath } from './types';
 import { Moon, Sun, Trophy } from 'lucide-react';
-import { EXERCISE_CATALOG, APP_VERSION } from './constants';
+import { EXERCISE_CATALOG } from './constants';
 
 const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -91,57 +91,41 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300 pb-20 flex flex-col">
-      {/* ГЛАВЕН ХЕДЕР */}
-      <header className="sticky top-0 z-50 bg-gradient-to-br from-cyan-950 via-blue-950 to-indigo-950 text-white py-6 px-4 md:px-8 border-b border-white/5 shadow-2xl overflow-hidden">
+      <header className="sticky top-0 z-50 bg-gradient-to-br from-cyan-950 via-blue-950 to-indigo-950 text-white py-5 px-4 md:px-8 border-b border-white/5 shadow-2xl">
          <div className="max-w-7xl mx-auto relative z-10">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                <div className="flex items-start gap-4 md:gap-8">
-                    {/* ЛОГО */}
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl border-2 border-cyan-500/30 shadow-2xl overflow-hidden shrink-0 bg-white/10 flex items-center justify-center p-0.5">
+            <div className="flex justify-between items-center gap-6">
+                <div className="flex items-center gap-4 md:gap-8">
+                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl border-2 border-white/10 shadow-2xl overflow-hidden shrink-0 bg-white/10 flex items-center justify-center p-0.5">
                        {!logoError ? (
                          <img 
                             src="./logo.jpg" 
                             alt="Logo" 
-                            className="w-full h-full object-cover rounded-[1.4rem]" 
+                            className="w-full h-full object-cover rounded-[1.2rem]" 
                             onError={() => setLogoError(true)}
                          />
                        ) : (
                          <Trophy size={32} className="text-cyan-400" />
                        )}
                     </div>
-
                     <div className="space-y-1">
-                        <div className="flex items-center gap-3">
-                           <h1 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-none">AQUA CODE</h1>
-                           <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-[10px] md:text-xs font-black px-2 py-0.5 rounded italic">PRO</span>
-                        </div>
-                        
-                        {/* ЛЕГЕНДАРНИ ПОРАКИ */}
+                        <h1 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-none">AQUA CODE</h1>
                         <div className="space-y-0.5">
-                          <p className="text-cyan-400 text-xs md:text-sm font-black uppercase tracking-widest">Вежбај • Играј • Победи</p>
-                          <p className="text-white/60 text-[10px] md:text-xs font-black uppercase tracking-wider">
+                          <p className="text-cyan-400 text-[10px] md:text-sm font-black uppercase tracking-widest">Вежбај • Играј • Победи</p>
+                          <p className="text-white/60 text-[9px] md:text-xs font-black uppercase tracking-wider">
                             Без одмор - Без милост - <span className="text-orange-500 font-black">САМО ВАТЕРПОЛО</span>
                           </p>
                         </div>
                     </div>
                 </div>
-
-                <div className="flex items-center gap-3 self-end md:self-center">
-                    <button onClick={toggleTheme} className="p-4 bg-white/5 backdrop-blur-3xl rounded-2xl border border-white/10 hover:bg-white/10 transition-all shadow-xl group">
+                <div className="flex items-center">
+                    <button onClick={toggleTheme} className="p-3 bg-white/5 backdrop-blur-3xl rounded-2xl border border-white/10 hover:bg-white/10 transition-all shadow-xl group">
                         {darkMode ? <Sun size={20} className="group-hover:rotate-45 transition-transform" /> : <Moon size={20} className="group-hover:-rotate-12 transition-transform" />}
                     </button>
                 </div>
             </div>
          </div>
-         {/* Decorative Background Element */}
-         <div className="absolute right-[-2%] bottom-[-10%] opacity-[0.03] pointer-events-none rotate-12">
-            <Trophy size={280} />
-         </div>
       </header>
-
-      {/* НАВИГАЦИЈА (Со вграден Micro Quote Bar) */}
       <Navigation activeTab={activeTab} onTabChange={setActiveTab} exercisesCount={exercisesCount} />
-
       <main className="max-w-7xl mx-auto p-4 md:p-6 flex-grow w-full mt-2">
           {activeTab === 'planner' && (
             <Planner 
